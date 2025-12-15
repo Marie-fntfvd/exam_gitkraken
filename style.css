@@ -1,52 +1,109 @@
+/* --- Reset léger --- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f3f7ff;                   /* bleu très clair comme ta maquette */
+  color: #111827;
+}
+
+/* --- Section globale --- */
+.lang-section {
+  padding: 4rem 2rem 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Titre + texte centré */
+.lang-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.lang-header h1 {
+  font-size: 2.7rem;
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.lang-header p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* --- Grille des cartes --- */
 .hero-slider {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  perspective: 1200px;
-  padding: 3rem;
+  gap: 2.5rem;
   justify-content: center;
 }
 
-.hero-slider .hero-card {
-  opacity: 0.8;
-  transform: translateZ(0) scale(0.95);
+/* Un item = une carte + le label dessous */
+.hero-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.hero-slider:hover .hero-card {
-  opacity: 0.4;
+/* Label sous chaque image */
+.hero-caption {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
 }
 
-.hero-slider .hero-card:hover {
-  opacity: 1;
-  transform: translateZ(140px) scale(1.05) rotateY(0deg);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
-}
-
-.card-fr { background-image: url("img/fr.jpg"); }
-.card-en { background-image: url("img/en.jpg"); }
-.card-es { background-image: url("img/es.jpg"); }
-.card-ru { background-image: url("img/ru.jpg"); }
-.card-pt { background-image: url("img/pt.jpg"); }
-.card-de { background-image: url("img/de.jpg"); }
-.card-pl { background-image: url("img/pl.jpg"); }
-.card-sr { background-image: url("img/sr.jpg"); }
-.card-nl { background-image: url("img/nl.jpg"); }
-
+/* --- Cartes ovales --- */
 .hero-card {
   position: relative;
-  width: 220px;
-  height: 320px;
-  border-radius: 18px;
+  width: 170px;
+  height: 260px;
+  border-radius: 100px;         /* forme pilule / ovale */
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  transform-style: preserve-3d;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.25);
+  text-decoration: none;
+  display: block;
   transition:
-    transform 0.4s ease,
-    opacity 0.4s ease,
-    box-shadow 0.4s ease;
-  text-decoration: none;      /* pas de soulignement du lien */
-  color: inherit;             /* texte blanc géré par .hero-content */
-  display: block;             /* le lien occupe toute la carte */
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    filter 0.35s ease;
+}
+
+/* Hover très léger : un peu plus grand + ombre */
+.hero-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.35);
+  filter: brightness(1.05);
+}
+
+/* --- Images (tu peux les remplacer) --- */
+.card-fr { background-image: url("https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg"); }
+.card-en { background-image: url("https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg"); }
+.card-es { background-image: url("https://images.pexels.com/photos/327821/pexels-photo-327821.jpeg"); }
+.card-ru { background-image: url("https://images.pexels.com/photos/208732/pexels-photo-208732.jpeg"); }
+.card-pt { background-image: url("https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg"); }
+.card-de { background-image: url("https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg"); }
+.card-pl { background-image: url("https://images.pexels.com/photos/1448733/pexels-photo-1448733.jpeg"); }
+.card-sr { background-image: url("https://images.pexels.com/photos/210743/pexels-photo-210743.jpeg"); }
+.card-nl { background-image: url("https://images.pexels.com/photos/327028/pexels-photo-327028.jpeg"); }
+
+/* --- Responsive simple --- */
+@media (max-width: 768px) {
+  .lang-header h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero-card {
+    width: 140px;
+    height: 220px;
+  }
 }
