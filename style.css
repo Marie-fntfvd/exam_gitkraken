@@ -1,0 +1,52 @@
+.hero-slider {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  perspective: 1200px;
+  padding: 3rem;
+  justify-content: center;
+}
+
+.hero-slider .hero-card {
+  opacity: 0.8;
+  transform: translateZ(0) scale(0.95);
+}
+
+.hero-slider:hover .hero-card {
+  opacity: 0.4;
+}
+
+.hero-slider .hero-card:hover {
+  opacity: 1;
+  transform: translateZ(140px) scale(1.05) rotateY(0deg);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+.card-fr { background-image: url("img/fr.jpg"); }
+.card-en { background-image: url("img/en.jpg"); }
+.card-es { background-image: url("img/es.jpg"); }
+.card-ru { background-image: url("img/ru.jpg"); }
+.card-pt { background-image: url("img/pt.jpg"); }
+.card-de { background-image: url("img/de.jpg"); }
+.card-pl { background-image: url("img/pl.jpg"); }
+.card-sr { background-image: url("img/sr.jpg"); }
+.card-nl { background-image: url("img/nl.jpg"); }
+
+.hero-card {
+  position: relative;
+  width: 220px;
+  height: 320px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease,
+    box-shadow 0.4s ease;
+  text-decoration: none;      /* pas de soulignement du lien */
+  color: inherit;             /* texte blanc géré par .hero-content */
+  display: block;             /* le lien occupe toute la carte */
+}
